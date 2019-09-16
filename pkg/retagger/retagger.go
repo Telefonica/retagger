@@ -88,15 +88,15 @@ func (r *Retagger) handleImageTag(image config.Image, tag config.Tag) error {
 		}
 	}
 
-	ok, err := r.destinationRegistry.CheckImageTagExists(imageName, tag.Tag)
-	if ok {
-		r.logger.Log("level", "debug", "message", fmt.Sprintf("retagged image %q with tag %q already exists, skipping", imageName, tag.Tag))
-		return nil
-	} else if err != nil {
-		return microerror.Maskf(err, "could not check image %q and tag %q: %v", imageName, tag.Tag, err)
-	} else {
-		r.logger.Log("level", "debug", "message", fmt.Sprintf("retagged image %q with tag %q does not exist", imageName, tag.Tag))
-	}
+	// ok, err := r.destinationRegistry.CheckImageTagExists(imageName, tag.Tag)
+	// if ok {
+	// 	r.logger.Log("level", "debug", "message", fmt.Sprintf("retagged image %q with tag %q already exists, skipping", imageName, tag.Tag))
+	// 	return nil
+	// } else if err != nil {
+	// 	return microerror.Maskf(err, "could not check image %q and tag %q: %v", imageName, tag.Tag, err)
+	// } else {
+	// 	r.logger.Log("level", "debug", "message", fmt.Sprintf("retagged image %q with tag %q does not exist", imageName, tag.Tag))
+	// }co
 
 	shaName := config.ShaName(image.Name, tag.Sha)
 
