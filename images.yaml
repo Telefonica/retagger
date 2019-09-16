@@ -5,6 +5,10 @@
     tag: "v1"
   - sha: cf887802d05e34f1eacb0a08c9c118372ef069d335bc5c586540a5892d7690fd
     tag: "v1-1"
+- name: busybox
+  tags:
+  - sha: 9f1003c480699be56815db0f8146ad2e22efea85129b5b5983d0e0fb52d9ab70
+    tag: "1.31.0"
 # - name: alpine
 #   tags:
 #   - sha: 7df6db5aa61ae9480f52f0b3a06a140ab98d427f86d8d5de0bedab9b8df6b1c0
@@ -28,10 +32,6 @@
 #   tags:
 #   - sha: 1b56b1c2c5d737bd8029f2e2e80852c0c1ef342e36ca0940dd313d4d8a786311
 #     tag: 4.0.9
-# - name: busybox
-#   tags:
-#   - sha: 9f1003c480699be56815db0f8146ad2e22efea85129b5b5983d0e0fb52d9ab70
-#     tag: 1.31.0
 # - name: cibuilds/github
 #   tags:
 #   - sha: 9029b2f52ecd28aacec2fd8a86a321dc9f77a46df251de5e3f157dd6e80baea0
