@@ -5,10 +5,6 @@
     tag: "v1"
   - sha: cf887802d05e34f1eacb0a08c9c118372ef069d335bc5c586540a5892d7690fd
     tag: "v1-1"
-- name: busybox
-  tags:
-  - sha: 9f1003c480699be56815db0f8146ad2e22efea85129b5b5983d0e0fb52d9ab70
-    tag: "1.31.0"
 # - name: alpine
 #   tags:
 #   - sha: 7df6db5aa61ae9480f52f0b3a06a140ab98d427f86d8d5de0bedab9b8df6b1c0
@@ -44,11 +40,11 @@
 #     - tagSuffix: giantswarm
 #       dockerfileOptions:
 #       - EXPOSE 1053
-# - name: dduportal/bats
-#   tags:
-#   - sha: b2d533b27109f7c9ea1e270e23f212c47906346f9cffaa4da6da48ed9d8031da
-#     tag: 0.4.0
-# - name: docker
+- name: dduportal/bats
+  tags:
+  - sha: b2d533b27109f7c9ea1e270e23f212c47906346f9cffaa4da6da48ed9d8031da
+    tag: 0.4.0
+#- name: docker
 #   tags:
 #   - sha: e8e0f19612fef7fc1e190ec7ed6fb4c1f4e0c0f34424214dc44e9e94f8a1281d
 #     tag: 18.09.1

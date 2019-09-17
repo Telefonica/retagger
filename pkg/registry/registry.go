@@ -87,20 +87,20 @@ func (r *Registry) Login() error {
 	return nil
 }
 
-func (r *Registry) CheckImageTagExists(image, tag string) (bool, error) {
-	tags, err := r.ListImageTags(image)
-	if err != nil {
-		return false, microerror.Mask(err)
-	}
+// func (r *Registry) CheckImageTagExists(image, tag string) (bool, error) {
+// 	tags, err := r.ListImageTags(image)
+// 	if err != nil {
+// 		return false, microerror.Mask(err)
+// 	}
 
-	for _, imageTag := range tags {
-		if imageTag == tag {
-			return true, nil
-		}
-	}
+// 	for _, imageTag := range tags {
+// 		if imageTag == tag {
+// 			return true, nil
+// 		}
+// 	}
 
-	return false, nil
-}
+// 	return false, nil
+// }
 
 func (r *Registry) ListImageTags(image string) ([]string, error) {
 	var tags []string
