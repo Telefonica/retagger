@@ -23,11 +23,11 @@
 #       dockerfileOptions:
 #       - RUN addgroup -g 1000 -S giantswarm && adduser -u 1000 -S giantswarm -G giantswarm
 #       - USER giantswarm
-# - name: bitnami/redis
-#   overrideRepoName: bitnami-redis
-#   tags:
-#   - sha: 1b56b1c2c5d737bd8029f2e2e80852c0c1ef342e36ca0940dd313d4d8a786311
-#     tag: 4.0.9
+- name: bitnami/redis
+  overrideRepoName: bitnami-redis
+  tags:
+  - sha: 1b56b1c2c5d737bd8029f2e2e80852c0c1ef342e36ca0940dd313d4d8a786311
+    tag: 4.0.9
 # - name: cibuilds/github
 #   tags:
 #   - sha: 9029b2f52ecd28aacec2fd8a86a321dc9f77a46df251de5e3f157dd6e80baea0

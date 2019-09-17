@@ -67,25 +67,25 @@ func (r *Retagger) handleImageTag(image config.Image, tag config.Tag) error {
 	r.logger.Log("level", "debug", "message", fmt.Sprintf("managing: %v, %v, %v", imageName, tag.Sha, tag.Tag))
 
 	for _, customImage := range tag.CustomImages {
-		// ok, err := r.destinationRegistry.CheckImageTagExists(imageName, tag.Tag)
-		// if ok {
-		// 	r.logger.Log("message", "level", "debug", fmt.Sprintf("rebuilt image %q with tag %q already exists, skipping", imageName, fmt.Sprintf("%s-%s", tag.Tag, customImage.TagSuffix)))
-		// 	continue
-		// } else if err != nil {
-		// 	return microerror.Maskf(err, "could not check image %q and tag %q: %v", imageName, tag.Tag, err)
-		// } else {
-		// 	r.logger.Log("level", "debug", "message", fmt.Sprintf("rebuilt image %q with tag %q does not exists", imageName, fmt.Sprintf("%s-%s", tag.Tag, customImage.TagSuffix)))
-		// }
+		ok, err := r.destinationRegistry.CheckImageTagExists(imageName, tag.Tag)
+		if ok {
+			r.logger.Log("message", "level", "debug", fmt.Sprintf("rebuilt image %q with tag %q already exists, skipping", imageName, fmt.Sprintf("%s-%s", tag.Tag, customImage.TagSuffix)))
+			continue
+		} else if err != nil {
+			return microerror.Maskf(err, "could not check image %q and tag %q: %v", imageName, tag.Tag, err)
+		} else {
+			r.logger.Log("level", "debug", "message", fmt.Sprintf("rebuilt image %q with tag %q does not exists", imageName, fmt.Sprintf("%s-%s", tag.Tag, customImage.TagSuffix)))
+		}
 		rebuiltImageTag, err := r.destinationRegistry.Rebuild(imageName, tag.Tag, customImage)
 		if err != nil {
 			return microerror.Maskf(err, "could not rebuild image")
 		}
 
-		// r.logger.Log("level", "debug", "message", fmt.Sprintf("pushing rebuilt custom image %s-%s", tag.Tag, customImage.TagSuffix))
-		// push := exec.Command("docker", "push", rebuiltImageTag)
-		// if err := Run(push); err != nil {
-		// 	return microerror.Maskf(err, "could not push image")
-		// }
+		r.logger.Log("level", "debug", "message", fmt.Sprintf("pushing rebuilt custom image %s-%s", tag.Tag, customImage.TagSuffix))
+		push := exec.Command("docker", "push", rebuiltImageTag)
+		if err := Run(push); err != nil {
+			return microerror.Maskf(err, "could not push image")
+		}
 	}
 
 	// ok, err := r.destinationRegistry.CheckImageTagExists(imageName, tag.Tag)
